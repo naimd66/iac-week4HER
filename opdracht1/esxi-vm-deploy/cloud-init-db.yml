@@ -1,0 +1,7 @@
+#cloud-config
+users:
+  - name: iac
+    ssh-authorized-keys:
+      - 8yCBO8GSQ7QFRyKtAZqJ6nw06Oy6mf2zU8zONFOvL2M
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    shell: /bin/bash

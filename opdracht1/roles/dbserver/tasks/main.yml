@@ -1,0 +1,36 @@
+---
+- name: Install PyMySQL for MySQL Ansible module
+  apt:
+    name: python3-pymysql
+    state: present
+  become: true
+
+- name: Install MySQL Server
+  apt:
+    name: mysql-server
+    state: present
+    update_cache: true
+
+- name: Set MySQL root password
+  mysql_user:
+    name: root
+    host: localhost
+    password: "{{ mysql_root_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  become: true
+
+- name: Create database user
+  mysql_user:
+    name: "{{ mysql_user }}"
+    password: "{{ mysql_password }}"
+    priv: '*.*:ALL'
+    host: "%"
+    state: present
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+  become: true
+
+- name: Install PyMySQL for Ansible
+  apt:
+    name: python3-pymysql
+    state: present

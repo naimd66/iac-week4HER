@@ -1,0 +1,3 @@
+mysql_user: ansible
+mysql_password: ansiblepassword
+mysql_root_password: rootpassword

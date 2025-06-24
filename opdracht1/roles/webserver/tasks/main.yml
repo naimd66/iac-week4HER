@@ -1,0 +1,14 @@
+---
+- name: Install Apache
+  apt:
+    name: apache2
+    state: present
+    update_cache: true
+  notify: restart apache
+
+- name: Install PHP and PHP-MySQL
+  apt:
+    name:
+      - php
+      - php-mysql
+    state: present

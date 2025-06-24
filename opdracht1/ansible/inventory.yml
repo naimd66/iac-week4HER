@@ -1,0 +1,14 @@
+all:
+  children:
+    web:
+      hosts:
+        webvm:
+          ansible_host: 40.68.159.18  # vervang dit door je echte public IP van webvm
+          ansible_user: iac
+          ansible_ssh_private_key_file: ~/.ssh/skylab
+    db:
+      hosts:
+        dbvm:
+          ansible_host: 40.68.155.223  # vervang dit door je echte public IP van dbvm
+          ansible_user: iac
+          ansible_ssh_private_key_file: ~/.ssh/skylab
